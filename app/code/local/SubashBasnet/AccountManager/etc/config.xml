@@ -1,4 +1,4 @@
-<?xml version="1.0! ?>
+<?xml version="1.0"?>
 <!--
 /**
  * app/code/local/SubashBasnet/AccountManager/etc/config.xml
@@ -36,4 +36,15 @@
             </accountmanager>
         </helpers>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <accountmanager before="Mage_Adminhtml">SubashBasnet_AccountManager_Adminhtml</accountmanager>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
 </config>
