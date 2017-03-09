@@ -1,0 +1,16 @@
+2017-03-08T14:23:54+00:00 ERR (3): 
+exception 'Mage_Core_Exception' with message 'Invalid block type: SubashBasnet_AccountManager_Block_Adminhtml_Manager_Edit_Form' in /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/Mage.php:595
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/Layout.php(495): Mage::throwException('Invalid block t...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/Layout.php(437): Mage_Core_Model_Layout->_getBlockInstance('accountmanager/...', Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Adminhtml/Block/Widget/Form/Container.php(93): Mage_Core_Model_Layout->createBlock('accountmanager/...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Block/Abstract.php(297): Mage_Adminhtml_Block_Widget_Form_Container->_prepareLayout()
+#4 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/Layout.php(456): Mage_Core_Block_Abstract->setLayout(Object(Mage_Core_Model_Layout))
+#5 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/local/SubashBasnet/AccountManager/controllers/Adminhtml/AccountmanagerController.php(21): Mage_Core_Model_Layout->createBlock('accountmanager/...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Controller/Varien/Action.php(418): SubashBasnet_AccountManager_Adminhtml_AccountManagerController->indexAction()
+#7 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Controller/Varien/Router/Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('index')
+#8 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Controller/Varien/Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#9 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/Mage.php(684): Mage_Core_Model_App->run(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/index.php(83): Mage::run('', 'store')
+#12 {main}
