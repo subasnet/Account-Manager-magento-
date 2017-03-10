@@ -13,9 +13,30 @@
  */
 class SubashBasnet_AccountManager_Adminhtml_ManagerController extends Mage_Adminhtml_Controller_Action
 {
+   
+    
     public function indexAction()
     {
         $this->loadLayout();
+        
+        $this->_setActiveMenu('accountmanager/managers');
+        
+        $this->_addContent(
+            $this->getLayout()->createBlock('accountmanager/adminhtml_manager')
+        );
+        
+        return $this->renderLayout();
+    }
+    
+    public function newAction()
+    {
+        $this->_forward('edit');
+    }
+    
+    public function editAction()
+    {
+        $this->loadLayout();
+        $this->_setActiveMenu('accountmanager/managers');
         
         $this->_addContent(
             $this->getLayout()->createBlock('accountmanager/adminhtml_manager_edit')
