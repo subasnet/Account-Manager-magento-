@@ -1,6 +1,6 @@
 <?php
 /**
- * app/code/local/SubashBasnet/AccountManager/Model/Event.php
+ * app/code/local/SubashBasnet/AccountManager/Model/Resource/Manager.php
  *
  * This is description
  *
@@ -11,10 +11,10 @@
  * @package     AccountManager
  * @copyright   Copyright (c) 2017 
  */
-class SubashBasnet_AccountManager_Model_Event extends Mage_Core_Model_Abastract
+class SubashBasnet_AccountManager_Model_Resource_Manager extends Mage_Core_Model_Resource_Db_Abstract
 {
     public function _construct()
     {
-        $this->_init('accountmanager/manager');
+        $this->_init('accountmanager/manager', 'manager_id');
     }
 }

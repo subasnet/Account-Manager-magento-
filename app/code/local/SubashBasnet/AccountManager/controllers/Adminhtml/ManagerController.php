@@ -23,4 +23,23 @@ class SubashBasnet_AccountManager_Adminhtml_ManagerController extends Mage_Admin
         
         return $this->renderLayout();
     }
+    
+    public function saveAction()
+    {
+        $managerId = $this->getRequest()->getParam('manager_id');
+        $managerModel = Mage::getModel('accountmanager/manager')->load($managerId);
+        
+        if ( $data = $this->getRequest()->getPost() ) {
+            try {
+                $managerModel->addData($data)->save();
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    $this->__("Account manager has been saved successfully.")
+                );
+            } catch ( Exception $e ) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        }
+        
+        $this->_redirect('*/*/index');
+    }
 }
