@@ -16,15 +16,35 @@
 <config>
     <modules>
         <SubashBasnet_AccountManager>
-            <version>0.0.0</version>
+            <version>0.0.5</version>
         </SubashBasnet_AccountManager>
     </modules>
     <global>
         <models>
             <accountmanager>
                 <class>SubashBasnet_AccountManager_Model</class>
+                <resourceModel>accountmanager_resource</resourceModel>
             </accountmanager>
+            <accountmanager_resource>
+                <class>SubashBasnet_AccountManager_Model_Resource</class>
+                <entities>
+                        <manager>
+                            <table>accountmanager_manager</table>
+                        </manager>
+                        <manager_registrant>
+                            <table>accountmanager_manager_registrant</table>
+                        </manager_registrant>
+                </entities>
+            </accountmanager_resource>
         </models>
+        <resources>
+            <accountmanager_setup>
+                <setup>
+                    <module>SubashBasnet_AccountManager</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </accountmanager_setup>
+        </resources>
         <blocks>
             <accountmanager>
                 <class>SubashBasnet_AccountManager_Block</class>

@@ -1,0 +1,9 @@
+a:5:{i:0;s:234:"Error in file: "/Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/local/SubashBasnet/AccountManager/sql/accountmanager_setup/upgrade-0.0.3-0.0.4.php" - Can't retrieve entity config: accountmanager/manager";i:1;s:1319:"#0 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/Resource/Setup.php(644): Mage::exception('Mage_Core', 'Error in file: ...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/Resource/Setup.php(422): Mage_Core_Model_Resource_Setup->_modifyResourceDb('upgrade', false, '0.0.4')
+#2 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/Resource/Setup.php(327): Mage_Core_Model_Resource_Setup->_installResourceDb('0.0.4')
+#3 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/Resource/Setup.php(235): Mage_Core_Model_Resource_Setup->applyUpdates()
+#4 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/App.php(428): Mage_Core_Model_Resource_Setup::applyAllUpdates()
+#5 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/code/core/Mage/Core/Model/App.php(354): Mage_Core_Model_App->_initModules()
+#6 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/app/Mage.php(684): Mage_Core_Model_App->run(Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/magento/account-Manager(magento)/index.php(83): Mage::run('', 'store')
+#8 {main}";s:3:"url";s:118:"/magento/account-Manager(magento)/index.php/admin/system_config/edit/section/dev/key/1f6beab9229aebb01c5c1c638b0e75e4/";s:11:"script_name";s:43:"/magento/account-Manager(magento)/index.php";s:4:"skin";s:7:"default";}

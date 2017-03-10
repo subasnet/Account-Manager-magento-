@@ -31,4 +31,9 @@ class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Edit extends Mage_Admi
     {
         return Mage::helper('accountmanager')->__('New Account Manager');
     }
+    
+    public function getSaveUrl()
+    {
+        return $this->getUrl('*/manager/save');
+    }
 }
