@@ -42,6 +42,9 @@ class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Grid extends
             'header' => $this->__('Name')
         ));
         
+        $this->addExportType('*/*/exportCsv', Mage::helper('accountmanager')->__('CSV'));
+        $this->addExportType('*/*/exportExcel', Mage::helper('accountmanager')->__('Excel XML'));
+        
         
         return $this;
     }

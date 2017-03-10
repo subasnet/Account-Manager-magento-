@@ -112,4 +112,25 @@ class SubashBasnet_AccountManager_Adminhtml_ManagerController extends Mage_Admin
         $this->_redirect('*/*/index');
     }
     
+    
+    /**
+     * Export event grid to CSV format
+     */
+    public function exportCsvAction()
+    {
+        $fileName = 'account-managers.csv';
+        $grid     = $this->getLayout()->createBlock('accountmanager/adminhtml_manager_grid');
+        $this->_prepareDownloadResponse($fileName, $grid->getCsvFile());
+    }
+    
+    /**
+     * Export event grid to Excel XML format
+     */
+    public function exportExcelAction()
+    {
+        $fileName = 'account-managers.xlsx';
+        $grid     = $this->getLayout()->createBlock('accountmanager/adminhtml_manager_grid');
+        $this->_prepareDownloadResponse($fileName, $grid->getExcelFile($fileName));
+    }
+    
 }
