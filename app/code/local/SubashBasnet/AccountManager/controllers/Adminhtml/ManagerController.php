@@ -35,6 +35,10 @@ class SubashBasnet_AccountManager_Adminhtml_ManagerController extends Mage_Admin
     
     public function editAction()
     {
+        if ( $managerId = $this->getRequest()->getParam('manager_id') ) {
+            Mage::register('current_manager', Mage::getModel('accountmanager/manager')->load($managerId));
+        }
+        
         $this->loadLayout();
         $this->_setActiveMenu('accountmanager/managers');
         
@@ -57,10 +61,31 @@ class SubashBasnet_AccountManager_Adminhtml_ManagerController extends Mage_Admin
                     $this->__("Account manager has been saved successfully.")
                 );
             } catch ( Exception $e ) {
+                Mage::getSingleton('adminhtml/session')->setManagerFormData($data);
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                $this->_redirect('*/*/edit', array('_current' => true));
             }
         }
         
         $this->_redirect('*/*/index');
     }
+    
+    public function deleteAction()
+    {
+        $managerId = $this->getRequest()->getParam('manager_id');
+        $managerModel = Mage::getModel('accountmanager/manager')->load($managerId);
+        
+            try {
+                $managerModel->delete();
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    $this->__("Account manager has been deleted.")
+                );
+            } catch ( Exception $e ) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                $this->_redirect('*/*/edit', array('_current' => true));
+            }
+        
+        $this->_redirect('*/*/index');
+    }
+    
 }

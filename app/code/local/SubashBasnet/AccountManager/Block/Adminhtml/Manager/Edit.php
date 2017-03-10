@@ -34,6 +34,6 @@ class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Edit extends Mage_Admi
     
     public function getSaveUrl()
     {
-        return $this->getUrl('*/manager/save');
+        return $this->getUrl('*/manager/save', array('_current' => true));
     }
 }

@@ -14,6 +14,19 @@
 class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Edit_Form extends 
     Mage_Adminhtml_Block_Widget_Form
 {
+    
+    protected function _initFormValues()
+    {
+        if( $manager = Mage::registry('current_manager') ) {
+            $data = $manager->getData();
+            $this->getForm()->setValues($data);
+        }
+        
+        if ( $data = Mage::getSingleton('adminhtml/session')->getData('manager_form_data', true) ) {
+            $this->getForm()->setValues($data);
+        }
+    }
+    
     protected function _prepareForm()
     {
         $form = new Varien_Data_Form(

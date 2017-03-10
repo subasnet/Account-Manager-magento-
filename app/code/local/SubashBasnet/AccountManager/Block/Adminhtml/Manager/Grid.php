@@ -14,6 +14,12 @@
 class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Grid extends 
     Mage_Adminhtml_Block_Widget_Grid
 {
+    
+    public function getRowUrl($item)
+    {
+        return $this->getUrl('*/manager/edit', array('manager_id' => $item->getId()));
+    }
+    
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('accountmanager/manager')->getCollection();
