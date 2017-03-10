@@ -45,4 +45,18 @@ class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Grid extends
         
         return $this;
     }
+    
+    protected function _prepareMassaction()
+    {
+        $this->setMassactionIdField('manager_id');
+        $this->getMassactionBlock()->setFormFieldName('manager_ids');
+        
+        $this->getMassactionBlock()->addItem('delete_manager', array(
+            'label' => Mage::helper('accountmanager')->__('Delete'),
+            'url' => $this->getUrl('*/*/massDelete'),
+            'confirm' => Mage::helper('accountmanager')->__('Are you sure?'),
+        ));
+        
+        return $this;
+    }
 }

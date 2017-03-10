@@ -88,4 +88,28 @@ class SubashBasnet_AccountManager_Adminhtml_ManagerController extends Mage_Admin
         $this->_redirect('*/*/index');
     }
     
+    
+    public function massDeleteAction()
+    {
+        if ( $managerIds = $this->getRequest()->getParam('manager_ids') ) {
+            try {
+                foreach ($managerIds as $managerId) {
+                    $model = Mage::getModel('accountmanager/manager')->load($managerId);
+                    $model->delete();
+                }
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    $this->__("%d manager(s) have been deleted!", count($managerIds))
+                );
+            } catch ( Exception $e ) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        } else {
+            Mage::getSingleton('adminhtml/session')->addError(
+                $this->__/'You must select a manager.'
+            );
+        }
+        
+        $this->_redirect('*/*/index');
+    }
+    
 }
