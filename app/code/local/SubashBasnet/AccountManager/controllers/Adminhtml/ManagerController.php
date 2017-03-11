@@ -49,26 +49,58 @@ class SubashBasnet_AccountManager_Adminhtml_ManagerController extends Mage_Admin
         return $this->renderLayout();
     }
     
+    
     public function saveAction()
     {
         $managerId = $this->getRequest()->getParam('manager_id');
         $managerModel = Mage::getModel('accountmanager/manager')->load($managerId);
         
         if ( $data = $this->getRequest()->getPost() ) {
-            try {
-                $managerModel->addData($data)->save();
-                Mage::getSingleton('adminhtml/session')->addSuccess(
-                    $this->__("Account manager has been saved successfully.")
-                );
-            } catch ( Exception $e ) {
-                Mage::getSingleton('adminhtml/session')->setManagerFormData($data);
-                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-                $this->_redirect('*/*/edit', array('_current' => true));
+            if($this->getRequest()->getPost('postcode')){
+                $collection = Mage::getModel('accountmanager/manager')->getCollection();
+                $collection->addFieldToFilter('postcode',$this->getRequest()->getPost('postcode'));
+                if(count($collection)){
+                    Mage::getSingleton('adminhtml/session')->addError(Mage::helper('accountmanager')->__('Postal sector already exist.'));
+                    $this->_redirect('*/*/edit');
+                    return;
+                }
+                
+                try {
+                    $managerModel->addData($data)->save();
+                    Mage::getSingleton('adminhtml/session')->addSuccess(
+                        $this->__("Account manager has been saved successfully.")
+                    );
+                } catch ( Exception $e ) {
+                    Mage::getSingleton('adminhtml/session')->setManagerFormData($data);
+                    Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                    $this->_redirect('*/*/edit', array('_current' => true));
+                }
             }
         }
         
         $this->_redirect('*/*/index');
     }
+    
+//    public function saveAction()
+//    {
+//        $managerId = $this->getRequest()->getParam('manager_id');
+//        $managerModel = Mage::getModel('accountmanager/manager')->load($managerId);
+//        
+//        if ( $data = $this->getRequest()->getPost() ) {
+//            try {
+//                $managerModel->addData($data)->save();
+//                Mage::getSingleton('adminhtml/session')->addSuccess(
+//                    $this->__("Account manager has been saved successfully.")
+//                );
+//            } catch ( Exception $e ) {
+//                Mage::getSingleton('adminhtml/session')->setManagerFormData($data);
+//                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+//                $this->_redirect('*/*/edit', array('_current' => true));
+//            }
+//        }
+//        
+//        $this->_redirect('*/*/index');
+//    }
     
     public function deleteAction()
     {

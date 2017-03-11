@@ -38,6 +38,13 @@ class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Edit_Form extends
         );
 
         $fieldset = $form->addFieldset('base_fieldset', array('legend' => Mage::helper('accountmanager')->__('General Information'), 'class' => 'fieldset-wide'));
+        
+        $fieldset->addField('postcode', 'text', array(
+            'name'      => 'postcode',
+            'label'     => Mage::helper('accountmanager')->__('Postal Sector'),
+            'title'     => Mage::helper('accountmanager')->__('Postal Sector'),
+            'required'  => true,
+        ));
 
         $fieldset->addField('name', 'text', array(
             'name'      => 'name',
@@ -46,12 +53,7 @@ class SubashBasnet_AccountManager_Block_Adminhtml_Manager_Edit_Form extends
             'required'  => true,
         ));
         
-        $fieldset->addField('postcode', 'text', array(
-            'name'      => 'postcode',
-            'label'     => Mage::helper('accountmanager')->__('Postal Sector'),
-            'title'     => Mage::helper('accountmanager')->__('Postal Sector'),
-            'required'  => true,
-        ));
+        
 
         $form->setUseContainer(true);
         $this->setForm($form);

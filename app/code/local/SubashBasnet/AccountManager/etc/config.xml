@@ -16,7 +16,7 @@
 <config>
     <modules>
         <SubashBasnet_AccountManager>
-            <version>0.0.5</version>
+            <version>0.0.1</version>
         </SubashBasnet_AccountManager>
     </modules>
     <global>
