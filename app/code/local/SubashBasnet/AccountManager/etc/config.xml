@@ -67,4 +67,23 @@
             </adminhtml>
         </routers>
     </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <subashbasnet_accountmanager>
+                    <file>subashbasnet/accountmanager.xml</file>
+                </subashbasnet_accountmanager>
+            </updates>
+        </layout>
+        <events>
+            <sales_order_grid_collection_load_before>
+                <observers>
+                    <subashbasnet_accountmanager>
+                        <model>subashbasnet_accountmanager/observer</model>
+                        <method>salesOrderGridCollectionLoadBefore</method>
+                    </subashbasnet_accountmanager>
+                </observers>
+            </sales_order_grid_collection_load_before>
+        </events>
+    </adminhtml>
 </config>
